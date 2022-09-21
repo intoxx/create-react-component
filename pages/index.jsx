@@ -1,4 +1,8 @@
 import Head from "next/head";
+import TagGrid from "components/TagGrid";
+import TagRow from "components/TagRow";
+
+const tags = ["Startups", "Tech personalities", "Language learning", "Marketing", "NASA"];
 
 export default function Home() {
   return (
@@ -10,6 +14,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <TagGrid items={tags} rows={3} />
       </main>
     </>
   )
