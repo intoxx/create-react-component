@@ -1,9 +1,9 @@
-export default function Tag({ name, className = "" }) {
+export default function Tag({ children, href, className = "" }) {
     return (
-        <a href={`/${name}`}
-           className={`whitespace-nowrap ${className}`}
+        <a href={href}
+           className={className}
         >
-            {name}
+            {children}
         </a>
     );
 }

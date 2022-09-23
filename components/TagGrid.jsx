@@ -1,15 +1,22 @@
+import { React, useEffect, useRef } from "react";
 import TagRow from "components/TagRow";
 
-export default function TagGrid({ items, rows,  children }) {
+export default function TagGrid({ children, className }) {
+    const ref = useRef();
+
+    // Trick to ensure the overflowing content elements gets a padding (not counted by default).
+    // The issue is that it requires a re-render to be taken into consideration.
+    let pr = 0;
+    useEffect(() => {
+        pr = window.getComputedStyle(ref.current).getPropertyValue("padding-right");
+        ref.current.style.setProperty("--parent-pr", pr);
+
+        // Now children just have to use the --parent-pr CSS variable as a base for their calculus.
+    }, [pr]);
+
     return (
-        <article className="flex flex-col bg-black overflow-x-auto py-4 space-y-2"
-                 style={{ "--parent-px": "1rem" }}
-        >
-            {children ? children : (
-                [...Array(rows)].map((e, i) =>
-                    <TagRow items={items} key={i} />
-                )
-            )}
+        <article ref={ref} className={`flex flex-col overflow-x-auto ${className}`}>
+            {children}
         </article>
     );
 }

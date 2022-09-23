@@ -1,6 +1,7 @@
 import Head from "next/head";
 import TagGrid from "components/TagGrid";
 import TagRow from "components/TagRow";
+import Tag from "components/Tag";
 
 const tags = ["Startups", "Tech personalities", "Language learning", "Marketing", "NASA"];
 
@@ -14,7 +15,20 @@ export default function Home() {
       </Head>
 
       <main>
-        <TagGrid items={tags} rows={3} />
+        <TagGrid className="space-y-2 p-4">
+          <TagRow className="">
+            {tags.map(e =>
+              <Tag
+                key={e}
+                name={e}
+                href={`/${e.toLowerCase()}`}
+                className="text-sm tracking-tight whitespace-nowrap bg-black border shadow rounded-2xl px-5 py-1 text-white font-semibold"
+              >
+                {e}
+              </Tag>
+            )}
+          </TagRow>
+        </TagGrid>
       </main>
     </>
   )
