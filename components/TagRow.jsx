@@ -1,6 +1,6 @@
 import Tag from "./Tag";
 
-export default function TagGrid({ children, className = "" }) {
+export default function TagRow({ children, className = "" }) {
     return (
         <div className="flex">
             <div className="pr-[var(--parent-pr,0)]">
