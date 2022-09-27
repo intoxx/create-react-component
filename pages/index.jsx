@@ -20,7 +20,6 @@ export default function Home() {
             {tags.map(e =>
               <Tag
                 key={e}
-                name={e}
                 href={`/${e.toLowerCase()}`}
                 className="text-sm tracking-tight whitespace-nowrap bg-black border shadow rounded-2xl px-5 py-1 text-white font-semibold"
               >
