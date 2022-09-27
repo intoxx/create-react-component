@@ -1,5 +1,4 @@
 import { React, useEffect, useRef } from "react";
-import TagRow from "components/TagRow";
 
 export default function TagGrid({ children, className }) {
     const ref = useRef();
