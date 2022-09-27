@@ -1,5 +1,3 @@
-import Tag from "./Tag";
-
 export default function TagRow({ children, className = "" }) {
     return (
         <div className="flex">
